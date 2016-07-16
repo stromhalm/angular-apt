@@ -6,6 +6,7 @@
 
     <groupId>apt-online</groupId>
     <artifactId>apt-online</artifactId>
+    <packaging>war</packaging>
     <version>1.0</version>
 
     <dependencies>
