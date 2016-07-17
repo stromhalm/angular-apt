@@ -26,7 +26,7 @@
             <artifactId>apt</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/WEB-INF/lib/apt.jar</systemPath>
+            <systemPath>${project.basedir}/src/main/webapp/lib/apt.jar</systemPath>
         </dependency>
     </dependencies>
 
