@@ -1,4 +1,4 @@
-angular.module("apt")
+angular.module("apt", [])
 .value("serverEndpoint", "http://angular-apt.azurewebsites.net/api/")
 .service("apt", ["$http", "serverEndpoint", function apt($http, serverEndpoint) {
     this.getCoverabilityGraph = function(aptCode) {
