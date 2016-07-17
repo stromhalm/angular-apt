@@ -29,7 +29,7 @@
     <orderEntry type="module-library">
       <library name="Maven: de.uniol:apt:1.0">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/libs/apt.jar!/" />
+          <root url="jar://$MODULE_DIR$/WEB-INF/lib/apt.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
