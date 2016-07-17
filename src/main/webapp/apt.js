@@ -7,4 +7,11 @@ angular.module("apt")
                     return response.coverabilityGraph
                 })
         }
+
+        this.getSynthesizedNet = function(aptCode) {
+            $http.post(serverEndpoint + "coverabilityGraph", null)
+                .then(function(response) {
+                    return response.coverabilityGraph
+                })
+        }
     }]);
