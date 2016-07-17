@@ -10,7 +10,7 @@ before_deploy:
   - "git clone https://$AZURE_WA_USERNAME:$AZURE_WA_PASSWORD@$AZURE_WA_SITE.scm.azurewebsites.net:443/$AZURE_WA_SITE.git" # clone existing repository from Azure
   - "rm angular-apt/root.war" # replace all the compiled files
   - "mv target/apt-online-1.0.war angular-apt/root.war"
-  - "cd apt-online"
+  - "cd angular-apt"
   - "echo \"`date +%s`\" > date.txt" # force Azure to push the directory even if nothing changed, so that the tests can succeed
   - "git add *"
   - "git commit -a -m 'Push to Azure'"
