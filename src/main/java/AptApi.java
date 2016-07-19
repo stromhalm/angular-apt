@@ -20,7 +20,8 @@ public class AptApi extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) {
 
-		response.addHeader("Access-Control-Allow-Origin", "*");
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setHeader("Access-Control-Allow-Methods", "GET, POST");
 
 		String aptCode = request.getParameter("apt");
 		JSONObject jsonOut = new JSONObject();
