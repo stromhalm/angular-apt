@@ -14,7 +14,13 @@ import uniol.apt.module.impl.*;
 @WebServlet("/api/coverabilityGraph")
 public class AptApi extends HttpServlet {
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) {
+		doPost(request, response);
+	}
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) {
+
+		response.addHeader("Access-Control-Allow-Origin", "*");
 
 		String aptCode = request.getParameter("apt");
 		JSONObject jsonOut = new JSONObject();
@@ -40,16 +46,15 @@ public class AptApi extends HttpServlet {
 			AptPNRenderer renderer = new AptPNRenderer();
 			jsonOut.put("coverabilityGraph", renderer.render(test));
 
+			// Set response content type
+			response.setContentType("application/javascript");
+
+			PrintWriter output = response.getWriter();
+			output.println(jsonOut.toString());
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-
-		// Set response content type
-		response.setContentType("application/javascript");
-
-		PrintWriter output = response.getWriter();
-		output.println(jsonOut.toString());
 	}
 
 	public void destroy() {
