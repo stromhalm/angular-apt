@@ -19,6 +19,11 @@ public class AptApi extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) {
 
+		response.addHeader("Access-Control-Allow-Origin", "*");
+		response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, HEAD");
+		response.addHeader("Access-Control-Allow-Headers:", "Origin, Authorization, X-Requested-With, Content-Type, Accept");
+		response.addHeader("Access-Control-Max-Age", "1728000");
+
 		String aptCode = request.getParameter("apt");
 		JSONObject jsonOut = new JSONObject();
 		CoverabilityModule covMod = new CoverabilityModule();
