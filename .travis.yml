@@ -5,4 +5,4 @@ notifications:
   email:
     on_success: always
 after_success:
-  "curl --ftp-create-dirs -T target/apt-online-1.0.war -u $AZURE_WA_USERNAME:$AZURE_WA_PASSWORD ftps://waws-prod-db3-015.ftp.azurewebsites.windows.net/site/wwwroot/webapps/root.war"
+  "curl --ftp-create-dirs -T target/apt-online-1.0.war -u angular-apt\\apo-adrian-jagusch:$AZURE_WA_PASSWORD ftps://waws-prod-db3-015.ftp.azurewebsites.windows.net/site/wwwroot/webapps/root.war"
