@@ -4,6 +4,7 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import javax.servlet.ServletInputStream;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
@@ -14,7 +15,7 @@ import java.io.PrintWriter;
 /**
  * Created by adrian-jagusch on 22.07.16.
  */
-public class AptServlet {
+public class AptServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) {
 		doPost(request, response);
