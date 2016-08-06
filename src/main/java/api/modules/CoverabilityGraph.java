@@ -20,7 +20,7 @@ public class CoverabilityGraph extends AptServlet {
 		ModuleOutputImpl moduleOutput = ModuleUtils.getModuleOutput(covMod);
 
 		// Read apt input
-		String aptCode = (String) requestData.get("apt");
+		String aptCode = (String) requestData.get("pn");
 
 		try {
 			// Parse input
