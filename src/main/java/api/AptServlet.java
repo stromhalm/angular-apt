@@ -12,10 +12,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
-/**
- * Created by adrian-jagusch on 22.07.16.
- */
-public class AptServlet extends HttpServlet {
+public abstract class AptServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) {
 		doPost(request, response);
@@ -39,9 +36,9 @@ public class AptServlet extends HttpServlet {
 	}
 
 	/**
-	 * Konvertiert den gegebenen Input-Stream in einen String.
-	 * @param stream Stream, der gelesen werden soll.
-	 * @return Zeichenkette aus dem String.
+	 * Converts the given input stream to a String
+	 * @param stream Stream to be read
+	 * @return String from input stream
 	 * @throws IOException
 	 */
 	private String getStringFromInputStream(ServletInputStream stream) throws IOException
@@ -54,9 +51,9 @@ public class AptServlet extends HttpServlet {
 	}
 
 	/**
-	 * Konvertiert den gegebenen Stream in ein JSONObject.
-	 * @param stream Stream mit JSON formatierten Daten.
-	 * @return JSONObject, der die Daten aus dem Stream enthält.
+	 * Converts the given input stream to a JSONObject.
+	 * @param stream Stream with JSON formated data.
+	 * @return JSONObject that contains the data from the input stream
 	 * @throws IOException
 	 */
 	private JSONObject getJSONData(ServletInputStream stream) throws IOException
