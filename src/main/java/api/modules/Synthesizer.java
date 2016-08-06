@@ -16,7 +16,7 @@ import uniol.apt.module.impl.ModuleUtils;
 
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet("/api/coverabilityGraph")
+@WebServlet("/api/synthesize")
 public class Synthesizer extends AptServlet {
 
 	public JSONObject processData(JSONObject requestData) {
