@@ -6,6 +6,6 @@ angular.module("apt", [])
     }
 
     this.getSynthesizedNet = function(lts, options) {
-        return $http.post(serverEndpoint + "coverabilityGraph", {lts: lts, options: options})
+        return $http.post(serverEndpoint + "synthesize", {lts: lts, options: options})
     }
 }]);
