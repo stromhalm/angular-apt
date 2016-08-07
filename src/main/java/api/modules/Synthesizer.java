@@ -7,6 +7,7 @@ import uniol.apt.adt.pn.PetriNet;
 import uniol.apt.adt.ts.TransitionSystem;
 import uniol.apt.analysis.coverability.CoverabilityModule;
 import uniol.apt.analysis.synthesize.SynthesizeModule;
+import uniol.apt.io.parser.impl.AptLTSParser;
 import uniol.apt.io.parser.impl.AptPNParser;
 import uniol.apt.io.renderer.impl.AptLTSRenderer;
 import uniol.apt.io.renderer.impl.AptPNRenderer;
@@ -27,7 +28,7 @@ public class Synthesizer extends AptServlet {
 		ModuleOutputImpl moduleOutput = ModuleUtils.getModuleOutput(synthesizer);
 
 		// Read apt input
-		String aptCode = (String) requestData.get("lts");
+		String ltsCode = (String) requestData.get("lts");
 		JSONArray options = requestData.getJSONArray("options");
 		String optionsString = "quick-fail"; // Stop the algorithm when the result 'success: No' is clear.
 
@@ -37,11 +38,11 @@ public class Synthesizer extends AptServlet {
 
 		try {
 			// Parse input
-			AptPNParser aptPNParser = new AptPNParser();
-			PetriNet pn = aptPNParser.parseString(aptCode);
+			AptLTSParser aptLTSParser = new AptLTSParser();
+			TransitionSystem lts = aptLTSParser.parseString(ltsCode);
 			ModuleInputImpl input = new ModuleInputImpl();
 			input.setParameter("options", optionsString);
-			input.setParameter("lts", pn);
+			input.setParameter("lts", lts);
 
 			// Run Coverability Module
 			synthesizer.run(input, moduleOutput);
@@ -51,7 +52,9 @@ public class Synthesizer extends AptServlet {
 			AptPNRenderer aptLTSRenderer = new AptPNRenderer();
 			jsonOut.put("pn", aptLTSRenderer.render(net));
 
-		} catch (Exception e) {}
+		} catch (Exception e) {
+			jsonOut.put("error", e.getMessage());
+		}
 		return jsonOut;
 	}
 }
