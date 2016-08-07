@@ -50,7 +50,15 @@ public class Synthesizer extends AptServlet {
 			// Parse output
 			PetriNet net = (PetriNet) moduleOutput.getValue("pn");
 			AptPNRenderer aptLTSRenderer = new AptPNRenderer();
-			jsonOut.put("pn", aptLTSRenderer.render(net));
+
+			if (moduleOutput.getValue("success").equals(true)) {
+				jsonOut.put("success", true);
+				jsonOut.put("pn", aptLTSRenderer.render(net));
+			} else {
+				jsonOut.put("success", false);
+				jsonOut.put("failedStateSeparationProblems", moduleOutput.getValue("failedStateSeparationProblems"));
+				jsonOut.put("failedEventStateSeparationProblems", moduleOutput.getValue("failedEventStateSeparationProblems"));
+			}
 
 		} catch (Exception e) {
 			jsonOut.put("error", e.getMessage());
