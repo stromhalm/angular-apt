@@ -35,7 +35,7 @@ public class CoverabilityGraph extends AptServlet {
 			// Parse output
 			TransitionSystem cov = (TransitionSystem) moduleOutput.getValue("lts");
 			AptLTSRenderer aptLTSRenderer = new AptLTSRenderer();
-			jsonOut.put("coverabilityGraph", aptLTSRenderer.render(cov));
+			jsonOut.put("lts", aptLTSRenderer.render(cov));
 
 		} catch (Exception e) {}
 		return jsonOut;
