@@ -1,5 +1,5 @@
 package api.modules;
-import javax.servlet.annotation.WebServlet;
+
 import api.AptServlet;
 import org.json.JSONObject;
 import uniol.apt.adt.pn.PetriNet;
@@ -7,17 +7,22 @@ import uniol.apt.adt.ts.TransitionSystem;
 import uniol.apt.analysis.coverability.CoverabilityModule;
 import uniol.apt.io.parser.impl.AptPNParser;
 import uniol.apt.io.renderer.impl.AptLTSRenderer;
-import uniol.apt.module.impl.*;
+import uniol.apt.module.impl.ModuleInputImpl;
+import uniol.apt.module.impl.ModuleOutputImpl;
+import uniol.apt.module.impl.ModuleUtils;
+import uniol.apt.pnanalysis.PnAnalysisModule;
 
-@WebServlet("/api/coverabilityGraph")
-public class CoverabilityGraph extends AptServlet {
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/api/pnAnalysis")
+public class PnAnalysis extends AptServlet {
 
 	public JSONObject processData(JSONObject requestData) {
 
 		// Load APT Module
 		JSONObject jsonOut = new JSONObject();
-		CoverabilityModule covMod = new CoverabilityModule();
-		ModuleOutputImpl moduleOutput = ModuleUtils.getModuleOutput(covMod);
+		PnAnalysisModule analysisModule = new PnAnalysisModule();
+		ModuleOutputImpl moduleOutput = ModuleUtils.getModuleOutput(analysisModule);
 
 		// Read apt input
 		String aptCode = (String) requestData.get("pn");
@@ -30,7 +35,7 @@ public class CoverabilityGraph extends AptServlet {
 			input.setParameter("pn", pn);
 
 			// Run Coverability Module
-			covMod.run(input, moduleOutput);
+			analysisModule.run(input, moduleOutput);
 
 			// Parse output
 			TransitionSystem cov = (TransitionSystem) moduleOutput.getValue("lts");
