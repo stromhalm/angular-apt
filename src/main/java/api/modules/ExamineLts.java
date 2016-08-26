@@ -25,7 +25,7 @@ public class ExamineLts extends AptServlet {
 		ModuleOutputImpl moduleOutput = ModuleUtils.getModuleOutput(examineLTSModule);
 
 		// Read apt input
-		String aptCode = (String) requestData.get("pn");
+		String aptCode = (String) requestData.get("lts");
 
 		try {
 			// Parse input
