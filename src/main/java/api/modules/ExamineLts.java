@@ -14,7 +14,7 @@ import uniol.apt.module.impl.ModuleUtils;
 
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet("/api/examinePn")
+@WebServlet("/api/examineLts")
 public class ExamineLts extends AptServlet {
 
 	public JSONObject processData(JSONObject requestData) {
