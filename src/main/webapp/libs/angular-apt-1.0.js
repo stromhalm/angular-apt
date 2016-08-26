@@ -8,4 +8,8 @@ angular.module("apt", [])
     this.getSynthesizedNet = function(lts, options) {
         return $http.post(serverEndpoint + "synthesize", {lts: lts, options: options})
     }
+
+    this.pnAnalysis = function(pn) {
+        return $http.post(serverEndpoint + "pnAnalysis", {pn: pn})
+    }
 }]);
