@@ -69,7 +69,7 @@ public class ExaminePN extends AptServlet {
 			jsonOut.put("asymmetric_choice", moduleOutput.getValue("asymmetric_choice"));
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			jsonOut.put("error", e.getMessage());
 		}
 		return jsonOut;
 	}

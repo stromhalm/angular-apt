@@ -37,7 +37,9 @@ public class CoverabilityGraph extends AptServlet {
 			AptLTSRenderer aptLTSRenderer = new AptLTSRenderer();
 			jsonOut.put("lts", aptLTSRenderer.render(cov));
 
-		} catch (Exception e) {}
+		} catch (Exception e) {
+			jsonOut.put("error", e.getMessage());
+		}
 		return jsonOut;
 	}
 }

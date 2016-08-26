@@ -12,4 +12,8 @@ angular.module("apt", [])
     this.examinePn = function(pn) {
         return $http.post(serverEndpoint + "examinePn", {pn: pn})
     }
+
+    this.examineLts = function(lts) {
+        return $http.post(serverEndpoint + "examineLts", {lts: lts})
+    }
 }]);
