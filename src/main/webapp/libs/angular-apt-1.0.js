@@ -9,7 +9,7 @@ angular.module("apt", [])
         return $http.post(serverEndpoint + "synthesize", {lts: lts, options: options})
     }
 
-    this.pnAnalysis = function(pn) {
-        return $http.post(serverEndpoint + "pnAnalysis", {pn: pn})
+    this.examinePn = function(pn) {
+        return $http.post(serverEndpoint + "examinePn", {pn: pn})
     }
 }]);
