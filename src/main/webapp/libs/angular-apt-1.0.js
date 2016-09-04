@@ -16,4 +16,8 @@ angular.module("apt", [])
     this.examineLts = function(lts) {
         return $http.post(serverEndpoint + "examineLts", {lts: lts})
     }
+
+    this.normalizeApt = function(apt) {
+        return $http.post(serverEndpoint + "normalizeApt", {apt: apt})
+    }
 }]);
