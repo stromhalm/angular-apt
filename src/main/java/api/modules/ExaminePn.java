@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 @WebServlet("/api/examinePn")
-public class ExaminePN extends AptServlet {
+public class ExaminePn extends AptServlet {
 
 	public JSONObject processData(JSONObject requestData) {
 
