@@ -1,7 +1,7 @@
 # Angular APT
 Angular APT is a web API for [APT](http://github.com/cvo-theory/apt), a powerful software for petri net analysis and synthesis developed at the Carl von Ossietzly University in Oldenburg, Germany.
 
-For easy integration into AngularJS apps an AngularJS module is provided.
+For easy integration into AngularJS apps, an AngularJS module is provided.
 
 Its build to work with [APO](http://github.com/stromhalm/apo) but should work well with any other web application as well.
 
