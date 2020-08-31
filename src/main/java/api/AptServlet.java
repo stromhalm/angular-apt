@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
-public abstract class AptServlet extends HttpServlet {
+public class AptServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) {
 		doPost(request, response);
