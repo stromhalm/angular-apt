@@ -20,4 +20,4 @@ jobs:
       run: |
         echo $GH_TOKEN | docker login docker.pkg.github.com -u stromhalm --password-stdin
         docker build . --file Dockerfile --tag docker.pkg.github.com/stromhalm/angular-apt/apt-docker:$(date +%s)
-        docker push docker.pkg.github.com/stromhalm/angular-apt/apt-docker:$(date +%s)
+        docker push docker.pkg.github.com/stromhalm/angular-apt/apt-docker
