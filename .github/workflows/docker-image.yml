@@ -15,7 +15,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
-        cat ~/GH_TOKEN.txt | docker login docker.pkg.github.com -u stromhalm --password-stdin
+        echo $GH_TOKEN | docker login docker.pkg.github.com -u stromhalm --password-stdin
         docker build . --file Dockerfile --tag docker.pkg.github.com/stromhalm/angular-apt:$(date +%s)
         docker push docker.pkg.github.com/stromhalm/angular-apt/IMAGE_NAME:VERSION
