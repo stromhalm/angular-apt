@@ -27,6 +27,7 @@ public class AptServlet extends HttpServlet {
 		} catch (IOException e) {}
 
 		JSONObject jsonResponse = processData(requestData);
+		response.addHeader("Access-Control-Allow-Origin", "*");
 		response.setContentType("application/javascript");
 		output.println(jsonResponse.toString());
 	}
