@@ -14,16 +14,24 @@ import java.io.PrintWriter;
 
 public class AptServlet extends HttpServlet {
 
+	/**
+	 * Options method. Needed for CORS headers
+	 */
 	public void doOptions(HttpServletRequest req, HttpServletResponse response) {
-		response.addHeader("Access-Control-Allow-Origin", "*");
-		response.addHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST");
+		sendCorsHeaders(response);
 		response.setStatus(HttpServletResponse.SC_OK);
     }
 
+	/**
+	 * Request can be either GET or POST
+	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) {
 		doPost(request, response);
 	}
 
+	/**
+	 * Main Servlet response router
+	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)  {
 		JSONObject requestData = null;
 		PrintWriter output = null;
@@ -33,13 +41,22 @@ public class AptServlet extends HttpServlet {
 		} catch (IOException e) {}
 
 		JSONObject jsonResponse = processData(requestData);
-		response.addHeader("Access-Control-Allow-Origin", "*");
+		sendCorsHeaders(response);
 		response.setContentType("application/javascript");
 		output.println(jsonResponse.toString());
 	}
 
 	public JSONObject processData(JSONObject requestData) {
 		return null;
+	}
+
+	/**
+	 * Send HTTP headers needed fo CORS
+	 */
+	private void sendCorsHeaders(HttpServletResponse response) {
+		response.addHeader("Access-Control-Allow-Origin", "*");
+		response.addHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST");
+		response.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	}
 
 	/**
