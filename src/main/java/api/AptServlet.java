@@ -16,6 +16,7 @@ public class AptServlet extends HttpServlet {
 
 	public void doOptions(HttpServletRequest req, HttpServletResponse response) {
 		response.addHeader("Access-Control-Allow-Origin", "*");
+		response.addHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST");
 		response.setStatus(HttpServletResponse.SC_OK);
     }
 
