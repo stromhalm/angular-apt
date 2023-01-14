@@ -8,8 +8,12 @@
     <servlet-name>AptServlet</servlet-name>
     <servlet-class>api.AptServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>HealthCheck</servlet-name>
+    <servlet-class>api.HealthCheck</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>AptServlet</servlet-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/api/*</url-pattern>
   </servlet-mapping>
 </web-app>
