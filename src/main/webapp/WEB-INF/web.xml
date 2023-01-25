@@ -5,15 +5,27 @@
    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
    version="2.5">
   <servlet>
-    <servlet-name>AptServlet</servlet-name>
-    <servlet-class>api.AptServlet</servlet-class>
+    <servlet-name>CoverabilityGraph</servlet-name>
+    <servlet-class>api.modules.CoverabilityGraph</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ExamineLts</servlet-name>
+    <servlet-class>api.modules.ExamineLts</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ExaminePn</servlet-name>
+    <servlet-class>api.modules.ExaminePn</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>NormalizeApt</servlet-name>
+    <servlet-class>api.modules.NormalizeApt</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Synthesizer</servlet-name>
+    <servlet-class>api.modules.Synthesizer</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>HealthCheck</servlet-name>
     <servlet-class>api.HealthCheck</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>AptServlet</servlet-name>
-    <url-pattern>/api/*</url-pattern>
-  </servlet-mapping>
 </web-app>
