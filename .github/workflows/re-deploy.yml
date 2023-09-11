@@ -12,4 +12,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Re-deploy service
-    - run: curl ${{ secrets.REDEPLOY_HOOK }}
+      run: curl ${{ secrets.REDEPLOY_HOOK }}
