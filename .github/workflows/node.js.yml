@@ -1,0 +1,15 @@
+# On a veriy basic server, the Jetty service will run out of memory about every two weeks.
+# Therefore, we reploy the service every week.
+
+name: Re-Deploy service on a schedule
+
+on:
+  schedule:
+    - cron:  '0 0 * * 0'
+
+jobs:
+  re-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Re-deploy service
+    - run: curl ${{ secrets.REDEPLOY_HOOK }}
